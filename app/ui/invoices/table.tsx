@@ -11,13 +11,14 @@ export default async function InvoicesTable({
   query: string;
   currentPage: number;
 }) {
-  const invoices = await fetchFilteredInvoices(query, currentPage);
-
+  let invoices;
+  invoices = await fetchFilteredInvoices(query, currentPage);
   return (
     <div className="mt-6 flow-root">
       <div className="inline-block min-w-full align-middle">
         <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
           <div className="md:hidden">
+            
             {invoices?.map((invoice) => (
               <div
                 key={invoice.id}
@@ -31,7 +32,7 @@ export default async function InvoicesTable({
                         className="mr-2 rounded-full"
                         width={28}
                         height={28}
-                        alt={`${invoice.name}'s profile picture`}
+                        alt = "logo"
                       />
                       <p>{invoice.name}</p>
                     </div>
